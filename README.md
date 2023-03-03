@@ -1,4 +1,4 @@
-https://git@github.com:Izvolsky/mesto-project.git
+https://izvolsky.github.io/mesto-project/
 
 
 # Проект: Место
