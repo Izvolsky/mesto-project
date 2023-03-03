@@ -1,0 +1,21 @@
+.element__button {
+  margin: 0;
+  background-image: url(../../../images/element-button-disabled.svg);
+  background-size: cover;
+  background-position: center;
+  width: 22px;
+  height: 19px;
+  border: 1px solid white;
+  background-color: white;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.element__button:hover {
+  opacity: 0.5;
+}
+
+.element__button:active {
+  background-image: url(../../../images/element-button-active.png);
+  opacity: 1;
+}
