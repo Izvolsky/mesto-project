@@ -4,3 +4,9 @@
   padding-bottom: 67px;
   box-sizing: border-box;
 }
+
+@media screen and (max-width: 767px) {
+  .elements {
+    padding-bottom: 48px;
+  }
+}

@@ -1,90 +1,93 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
-    <title>Mestro</title>
-  </head>
-  <body class="page">
-   <header class="header">
-      <div class="header__logo"></div>
-    </header>
-    <main class="content">
-      <section class="profile">
-        <div class="profile__avatar">
-          <img class="profile__image" src="./images/profile__image.jpg" alt="Жак-Ив-Кусто">
-        </div>
-        <div class="profile__info">
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <p class="profile__profession">Исследователь океана</p>
-          <button class="profile__button-edit"></button>
-        </div>
-        <button class="profile__button-add"></button>
-      </section>
-      <section class="elements">
-        <ul class="elements__list">
-          <li class="element">
-            <img class="element__image" src="./images/element__image-karachaevsk.jpg" alt="Карачаевск">
-            <div class="element__info">
-              <h2 class="element__place">Карачаевск</h2>
-              <button class="element__button"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img class="element__image" src="./images/element__image-elbrus.jpg" alt="Эльбрус">
-            <div class="element__info">
-              <h2 class="element__place">Гора Эльбрус</h2>
-              <button class="element__button"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img class="element__image" src="./images/element__image-dombai.jpg" alt="Домбай">
-            <div class="element__info">
-              <h2 class="element__place">Домбай</h2>
-              <button class="element__button"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img class="element__image" src="./images/element__image-ural.jpg" alt="Урал">
-            <div class="element__info">
-              <h2 class="element__place">Урал</h2>
-              <button class="element__button"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img class="element__image" src="./images/element__image-sochi.jpg" alt="Сочи">
-            <div class="element__info">
-              <h2 class="element__place">Сочи</h2>
-              <button class="element__button"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img class="element__image" src="./images/element__image-kamchatka.jpg" alt="Камчатка">
-            <div class="element__info">
-              <h2 class="element__place">Камчатка</h2>
-              <button class="element__button"></button>
-            </div>
-          </li>
-        </ul>
-      </section>
-    </main>
-    <footer class="footer">
-      <p class="footer__copyright">© 2020 Mesto Russia</p>
-    </footer>
-    <div class="popup">
-      <div class="popup__container">
-        <button class="popup__button-close"></button>
-        <form class="popup__form">
-          <p class="popup__title">Редактировать профиль</p>
-          <fieldset class="popup__fieldset">
-            <input class="popup__input" name="name" type="text" placeholder="Имя" value="Жак-Ив Кусто">
-          </fieldset>
-          <fieldset class="popup__fieldset">
-            <input class="popup__input" name="profession" type="text" placeholder="Профессия" value="Исследователь океана">
-          </fieldset>
-          <button class="popup__button-submit" type="submit">Сохранить</button>
-        </form>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Mestro</title>
+</head>
+
+<body class="page">
+  <header class="header">
+    <div class="header__logo"></div>
+  </header>
+  <main class="content">
+    <section class="profile">
+      <div class="profile__avatar">
+        <img class="profile__image" src="./images/profile__image.jpg" alt="Жак-Ив-Кусто">
       </div>
+      <div class="profile__info">
+        <h1 class="profile__name">Жак-Ив Кусто</h1>
+        <p class="profile__profession">Исследователь океана</p>
+        <button class="profile__button-edit" type="button"></button>
+      </div>
+      <button class="profile__button-add" type="button"></button>
+    </section>
+    <section class="elements">
+      <ul class="elements__list">
+        <li class="element">
+          <img class="element__image" src="./images/element__image-karachaevsk.jpg" alt="Карачаевск">
+          <div class="element__info">
+            <h2 class="element__place">Карачаевск</h2>
+            <button class="element__button" type="button"></button>
+          </div>
+        </li>
+        <li class="element">
+          <img class="element__image" src="./images/element__image-elbrus.jpg" alt="Эльбрус">
+          <div class="element__info">
+            <h2 class="element__place">Гора Эльбрус</h2>
+            <button class="element__button" type="button"></button>
+          </div>
+        </li>
+        <li class="element">
+          <img class="element__image" src="./images/element__image-dombai.jpg" alt="Домбай">
+          <div class="element__info">
+            <h2 class="element__place">Домбай</h2>
+            <button class="element__button" type="button"></button>
+          </div>
+        </li>
+        <li class="element">
+          <img class="element__image" src="./images/element__image-ural.jpg" alt="Урал">
+          <div class="element__info">
+            <h2 class="element__place">Урал</h2>
+            <button class="element__button" type="button"></button>
+          </div>
+        </li>
+        <li class="element">
+          <img class="element__image" src="./images/element__image-sochi.jpg" alt="Сочи">
+          <div class="element__info">
+            <h2 class="element__place">Сочи</h2>
+            <button class="element__button" type="button"></button>
+          </div>
+        </li>
+        <li class="element">
+          <img class="element__image" src="./images/element__image-kamchatka.jpg" alt="Камчатка">
+          <div class="element__info">
+            <h2 class="element__place">Камчатка</h2>
+            <button class="element__button" type="button"></button>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer class="footer">
+    <p class="footer__copyright">© 2020 Mesto Russia</p>
+  </footer>
+  <div class="popup">
+    <div class="popup__container">
+      <button class="popup__button-close" type="button"></button>
+      <form class="popup__form" name="form-edit">
+        <h3 class="popup__title">Редактировать профиль</h3>
+        <fieldset class="popup__fieldset">
+          <input class="popup__input" name="name" type="text" placeholder="Имя" value="Жак-Ив Кусто">
+        </fieldset>
+        <fieldset class="popup__fieldset">
+          <input class="popup__input" name="profession" type="text" placeholder="Профессия"
+            value="Исследователь океана">
+        </fieldset>
+        <button class="popup__button-submit" type="submit">Сохранить</button>
+      </form>
     </div>
-  </body>
+  </div>
+</body>

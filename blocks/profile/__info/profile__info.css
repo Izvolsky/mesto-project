@@ -2,17 +2,23 @@
   margin: 0;
   max-width: 100%;
   display: grid;
-  grid-template-columns: max-content 24px;
+  grid-template-columns: 1fr 24px;
+  grid-template-areas:
+  "profile__name profile__button-edit"
+  "profile__profession profile__profession";
   column-gap: 18px;
   row-gap: 16px;
 }
 
 @media screen and (max-width: 1047px) {
   .profile__info {
-    margin: 0 auto;
-    grid-template-columns: max-content 18px;
+    margin: 22.25px auto 0;
+    grid-template-columns: 18px 1fr 18px;
     column-gap: 10px;
     row-gap: 14px;
     padding-bottom: 36px;
+    grid-template-areas:
+    ". profile__name profile__button-edit"
+    "profile__profession profile__profession profile__profession";
   }
 }

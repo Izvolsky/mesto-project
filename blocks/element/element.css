@@ -4,11 +4,5 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  height: 362px;
-}
-
-@media screen and (max-width: 1279px) {
-  .element {
-    max-width: 282px;
-  }
+  max-width: 282px;
 }

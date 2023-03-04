@@ -1,18 +1,15 @@
 .profile__button-edit {
-  background-image: url(../../../images/Edit\ Button.svg);
+  background-image: url(../../../images/button-edit.svg);
   background-size: cover;
   background-position: center;
   width: 24px;
   height: 24px;
   background-color: #000000;
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 2;
   justify-self: start;
   align-self: center;
   border: 1px solid white;
   cursor: pointer;
+  grid-area: profile__button-edit;
 }
 
 .profile__button-edit:hover {
