@@ -1,11 +1,12 @@
 .element__button {
   margin: 0;
   background-image: url(../../../images/element-button-disabled.svg);
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
   width: 22px;
   height: 19px;
-  border: 1px solid white;
+  border: none;
   background-color: white;
   margin-right: 20px;
   cursor: pointer;

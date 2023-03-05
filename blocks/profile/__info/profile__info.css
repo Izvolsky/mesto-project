@@ -8,6 +8,8 @@
   "profile__profession profile__profession";
   column-gap: 18px;
   row-gap: 16px;
+  margin-right: 30px;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 1047px) {
@@ -15,8 +17,8 @@
     margin: 22.25px auto 0;
     grid-template-columns: 18px 1fr 18px;
     column-gap: 10px;
-    row-gap: 14px;
-    padding-bottom: 36px;
+    row-gap: 9px;
+    padding-bottom: 32px;
     grid-template-areas:
     ". profile__name profile__button-edit"
     "profile__profession profile__profession profile__profession";

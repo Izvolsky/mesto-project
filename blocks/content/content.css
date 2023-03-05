@@ -3,10 +3,11 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 767px) {
   .content {
-    max-width: calc(100% - 38px);
+    max-width: calc(100% - 29px);
   }
 }
