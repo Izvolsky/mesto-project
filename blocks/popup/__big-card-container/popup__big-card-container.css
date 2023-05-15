@@ -1,0 +1,15 @@
+.popup__big-card-container {
+    margin: 0 auto;
+    position: relative;
+  }
+
+  @media screen and (max-width: 321px) {
+    .popup__big-card-container {
+      margin: auto 40px auto 40px;
+    }
+  }
+
+
+
+
+

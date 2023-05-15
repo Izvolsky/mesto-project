@@ -3,6 +3,7 @@
 @import url(../blocks/content/content.css);
 @import url(../blocks/element/element.css);
 @import url(../blocks/element/__button/element__button.css);
+@import url(../blocks/element/__button/_active/);
 @import url(../blocks/element/__image/element__image.css);
 @import url(../blocks/element/__info/element__info.css);
 @import url(../blocks/element/__place/element__place.css);
@@ -30,3 +31,8 @@
 @import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__name/profile__name.css);
 @import url(../blocks/profile/__profession/profile__profession.css);
+@import url(../blocks/element/__button/_active/element__button_active.css);
+@import url(../blocks/element/__button-trash/element__button-trash.css);
+@import url(../blocks/popup/__big-card-container/popup__big-card-container.css);
+@import url(../blocks/popup/__big-card-image/popup__big-card-image.css);
+@import url(../blocks/popup/__big-card-text/popup__big-card-text.css);
