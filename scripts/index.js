@@ -110,7 +110,6 @@ initialCards.forEach(function (item) {
   const cardLink = item.link;
    addCard(cardName, cardLink);
 })
-
 closeButtons.forEach((button) => {
   // находим 1 раз ближайший к крестику попап
   const popup = button.closest('.popup');
