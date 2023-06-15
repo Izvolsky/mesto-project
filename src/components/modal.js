@@ -1,4 +1,4 @@
-export {closePopup, handleProfileFormSubmit, popupEditProfile, profileForm, handleAvatarFormSubmit, popupUpdateAvatar, profileImage, handleNewCardFormSubmit, popupNewCardForm, popupNewCard}
+export {closePopup, handleProfileFormSubmit, popupEditProfile, profileForm, handleAvatarFormSubmit, popupUpdateAvatar, profileImage, handleNewCardFormSubmit, popupNewCardForm, popupNewCard, openPopup, nameInput, profileName, profileProfession, professionInput}
 import {addCard} from './card.js'
 
 const popupEditProfile = document.querySelector('.popup__edit-profile');
@@ -15,9 +15,23 @@ const popupNewCardForm = popupNewCard.querySelector('.popup__form');
 const popupNewCardnameInput = popupNewCardForm.querySelector('.popup__input-name');
 const popupNewCardUrlInput = popupNewCardForm.querySelector('.popup__input-profession');
 
+//функция закрытия попапов при клике на ESC
+const closePopupClickEsc = (evt) => {
+  const popupOpened = document.querySelector('.popup_opened');
+  if (evt.key === 'Escape') {
+    closePopup(popupOpened);
+  }}
+
+const openPopup = (popup) => {
+  document.addEventListener('keydown', closePopupClickEsc) //вешаем слушатель closePopupClickEsc
+  popup.classList.add ('popup_opened') // функция открытия попапов всех
+}
+
 const closePopup = (popup) => {
+  document.removeEventListener('keydown', closePopupClickEsc)//снимаем слушатель closePopupClickEsc
   popup.classList.remove ('popup_opened') // функция закрытия попапов всех
 }
+
 const handleProfileFormSubmit = (evt) => { //функция отправки формы попапа профиля
   evt.preventDefault();
   profileName.textContent = nameInput.value;
@@ -36,6 +50,9 @@ const handleNewCardFormSubmit = (evt) => { //функция отправки ф�
   addCard(cardName, cardLink)
   closePopup(popupNewCard); // вызов фуенкции закрытия попап добавления новой карточки
   popupNewCardForm.reset(); // восстанавливаем стандартные значения всем элементам формы вместо value
+  const popupButtonSubmit = popupNewCard.querySelector('.popup__button-submit');
+  popupButtonSubmit.classList.add('popup__button-submit_disabled')
+  popupButtonSubmit.disabled = true;
 }
 
 

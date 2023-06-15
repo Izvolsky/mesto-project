@@ -1,18 +1,14 @@
 import './pages/index.css';
-import {openPopup} from './components/utils'
-import {closePopup, handleProfileFormSubmit, popupEditProfile, profileForm, handleAvatarFormSubmit, popupUpdateAvatar, profileImage, handleNewCardFormSubmit, popupNewCardForm, popupNewCard} from './components/modal'
+import {closePopup, handleProfileFormSubmit, popupEditProfile, profileForm, handleAvatarFormSubmit, popupUpdateAvatar, profileImage, handleNewCardFormSubmit, popupNewCardForm, popupNewCard, openPopup, nameInput, profileName, profileProfession, professionInput} from './components/modal'
 import {enableValidation, setting} from './components/validate'
 
 document.querySelector('.profile__button-edit').addEventListener('click', () => { openPopup(popupEditProfile);
+  nameInput.value = profileName.textContent;
+  professionInput.value = profileProfession.textContent;
 });//слушат попап открытия
 
 profileForm.addEventListener('submit', handleProfileFormSubmit);//слушатель отпраки формы профиля
 
-popupEditProfile.addEventListener('click', function(evt) {
-  if (evt.target.classList.contains('popup')) {
-    closePopup(popupEditProfile);
-  }
-})
 profileImage.addEventListener('click', () => {
   openPopup(popupUpdateAvatar);
 });//слушат попап редактирования аватарки
@@ -27,12 +23,10 @@ popupUpdateAvatar.addEventListener('submit', handleAvatarFormSubmit);
 //сверху слушатель отправки формы попапа изменения аватарки
 
 //слуш закрытие любого попапа при нажатии ESC
-document.addEventListener('keydown', function(evt) {
-  const popupOpened = document.querySelector('.popup_opened');
-  if (evt.key === 'Escape') {
-    closePopup(popupOpened);
-  }}
-)
+
+
+
+
 
 //слуш закрытия попапов при клике на оверлей перебором forEach
 document.querySelectorAll('.popup').forEach(function (popup) {
