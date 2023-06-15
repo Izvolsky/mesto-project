@@ -35,3 +35,7 @@
 @import url(../blocks/popup/__big-card-container/popup__big-card-container.css);
 @import url(../blocks/popup/__big-card-image/popup__big-card-image.css);
 @import url(../blocks/popup/__big-card-text/popup__big-card-text.css);
+@import url(../blocks/profile/__avatar-button/profile__avatar-button.css);
+@import url(../blocks/popup/__input/_type_error/popup__input_type_error.css);
+@import url(../blocks/popup/__input-error/_active/popup__input-error_active.css);
+@import url(../blocks/popup/__button-submit/_disabled/popup__button-submit_disabled.css);

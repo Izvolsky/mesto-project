@@ -1,0 +1,15 @@
+.popup__fieldset {
+  margin: 0 0 30px;
+  border: none;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+
+}
+
+@media screen and (max-width: 380px) {
+  .popup__fieldset {
+    margin: 0 0 45px;
+  }
+}
+

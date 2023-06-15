@@ -1,0 +1,11 @@
+.popup__button-submit_disabled {
+  background-color:  rgb(229, 229, 229);
+  color: #000000;
+  opacity: 0.2;
+}
+
+.popup__button-submit_disabled:hover {
+  background-color:  rgb(229, 229, 229);
+  color: #000000;
+  opacity: 0.2;
+}
