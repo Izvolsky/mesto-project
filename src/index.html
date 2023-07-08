@@ -1,101 +1,166 @@
 <!DOCTYPE html>
 <html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mestro</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mestro</title>
-</head>
-
-<body class="page">
-  <header class="header">
-    <div class="header__logo"></div>
-  </header>
-  <main class="content">
-    <section class="profile">
-      <div class="profile__avatar">
-        <img class="profile__image" src="<%=require('./images/profile__image.jpg')%>" alt="Жак-Ив-Кусто">
-        <!-- <button class="profile__avatar-button"></button>-->
-      </div>
-      <div class="profile__info">
-        <h1 class="profile__name">Жак-Ив Кусто</h1>
-        <p class="profile__profession">Исследователь океана</p>
-        <button class="profile__button-edit" type="button"></button>
-      </div>
-      <button class="profile__button-add" type="button"></button>
-    </section>
-    <section class="elements">
-      <ul class="elements__list"></ul>
-    </section>
-  </main>
-  <footer class="footer">
-    <p class="footer__copyright">© 2020 Mesto Russia</p>
-  </footer>
-  <div class="popup popup__edit-profile">
-    <div class="popup__container">
-      <button class="popup__button-close" type="button"></button>
-      <form class="popup__form" name="form-edit" novalidate>
-        <h3 class="popup__title">Редактировать профиль</h3>
-        <fieldset class="popup__fieldset">
-          <input id="name-input" class="popup__input popup__input-name" name="name" type="text" placeholder="Имя" value="Жак-Ив Кусто" minlength="2" maxlength="40" required pattern="^[a-zA-Zа-яА-ЯёЁ\s\-]+$" data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы.">
-          <span class="popup__input-error name-input-error"></span>
-        </fieldset>
-        <fieldset class="popup__fieldset">
-          <input id="profession-input" class="popup__input popup__input-profession" name="profession" type="text" placeholder="Профессия"
-            value="Исследователь океана" minlength="2" maxlength="200" required pattern="^[a-zA-Zа-яА-ЯёЁ\s\-]+$" data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы.">
+  <body class="page">
+    <header class="header">
+      <div class="header__logo"></div>
+    </header>
+    <main class="content">
+      <section class="profile">
+        <div class="profile__avatar">
+          <img
+            class="profile__image"
+            src="<%=require('./images/profile__image.jpg')%>"
+            alt="Жак-Ив-Кусто"
+          />
+          <button class="profile__avatar-button"></button>
+        </div>
+        <div class="profile__info">
+          <h1 class="profile__name"></h1>
+          <p class="profile__profession"></p>
+          <button class="profile__button-edit" type="button"></button>
+        </div>
+        <button class="profile__button-add" type="button"></button>
+      </section>
+      <section class="elements">
+        <ul class="elements__list"></ul>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">© 2020 Mesto Russia</p>
+    </footer>
+    <div class="popup popup__edit-profile">
+      <div class="popup__container">
+        <button class="popup__button-close" type="button"></button>
+        <form class="popup__form" name="form-edit" novalidate>
+          <h3 class="popup__title">Редактировать профиль</h3>
+          <fieldset class="popup__fieldset">
+            <input
+              id="name-input"
+              class="popup__input popup__input-name"
+              name="name"
+              type="text"
+              placeholder="Имя"
+              value="Жак-Ив Кусто"
+              minlength="2"
+              maxlength="40"
+              required
+              pattern="^[a-zA-Zа-яА-ЯёЁ\s\-]+$"
+              data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы."
+            />
+            <span class="popup__input-error name-input-error"></span>
+          </fieldset>
+          <fieldset class="popup__fieldset">
+            <input
+              id="profession-input"
+              class="popup__input popup__input-profession"
+              name="profession"
+              type="text"
+              placeholder="Профессия"
+              value="Исследователь океана"
+              minlength="2"
+              maxlength="200"
+              required
+              pattern="^[a-zA-Zа-яА-ЯёЁ\s\-]+$"
+              data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы."
+            />
             <span class="popup__input-error profession-input-error"></span>
-        </fieldset>
-        <button class="popup__button-submit" type="submit">Сохранить</button>
-      </form>
-    </div>
-  </div>
- <div class="popup popup__new-card">
-    <div class="popup__container">
-      <button class="popup__button-close" type="button"></button>
-      <form class="popup__form" name="form-new-card" novalidate>
-        <h3 class="popup__title">Новое место</h3>
-        <fieldset class="popup__fieldset">
-          <input id="place-input" class="popup__input popup__input-name" name="name" type="text" placeholder="Название" value="" minlength="2" maxlength="30" required pattern="^[a-zA-Zа-яА-ЯёЁ\s\-]+$" data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы.">
-          <span class="popup__input-error place-input-error"></span>
-        </fieldset>
-        <fieldset class="popup__fieldset">
-          <input id="url-input" class="popup__input popup__input-profession" name="profession" type="url" placeholder="Ссылка на картинку"
-            value="" required>
-          <span class="popup__input-error url-input-error"></span>
-        </fieldset>
-        <button class="popup__button-submit" type="submit">Сохранить</button>
-      </form>
-    </div>
-  </div>
-  <div class="popup popup__big-card">
-    <div class="popup__big-card-container">
-      <button class="popup__button-close" type="button"></button>
-      <img class="popup__big-card-image">
-      <h2 class="popup__big-card-text"></h2>
-    </div>
-  </div>
-  <div class="popup popup__update-avatar">
-    <div class="popup__container">
-      <button class="popup__button-close" type="button"></button>
-      <form class="popup__form" name="update-avatar">
-        <h3 class="popup__title">Обновить аватар</h3>
-        <fieldset class="popup__fieldset">
-          <input id="url-input" class="popup__input popup__input-name" name="name" type="url" placeholder="Имя" value="https://somewebsite.com/someimage.jpg" required>
-          <span class="popup__input-error url-input-error"></span>
-        </fieldset>
-        <button class="popup__button-submit" type="submit">Сохранить</button>
-      </form>
-    </div>
-  </div>
-
-  <template id="template-Element">
-    <li class="element">
-      <img class="element__image">
-      <button class="element__button-trash" type="button"></button>
-      <div class="element__info">
-        <h2 class="element__place"></h2>
-        <button class="element__button" type="button"></button>
+          </fieldset>
+          <button class="popup__button-submit" type="submit">Сохранить</button>
+        </form>
       </div>
-    </li>
-  </template>
-</body>
+    </div>
+    <div class="popup popup__new-card">
+      <div class="popup__container">
+        <button class="popup__button-close" type="button"></button>
+        <form class="popup__form" name="form-new-card" novalidate>
+          <h3 class="popup__title">Новое место</h3>
+          <fieldset class="popup__fieldset">
+            <input
+              id="place-input"
+              class="popup__input popup__input-name"
+              name="name"
+              type="text"
+              placeholder="Название"
+              value=""
+              minlength="2"
+              maxlength="30"
+              required
+              pattern="^[a-zA-Zа-яА-ЯёЁ\s\-]+$"
+              data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы."
+            />
+            <span class="popup__input-error place-input-error"></span>
+          </fieldset>
+          <fieldset class="popup__fieldset">
+            <input
+              id="url-input"
+              class="popup__input popup__input-profession"
+              name="profession"
+              type="url"
+              placeholder="Ссылка на картинку"
+              value=""
+              required
+            />
+            <span class="popup__input-error url-input-error"></span>
+          </fieldset>
+          <button class="popup__button-submit" type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup__big-card">
+      <div class="popup__big-card-container">
+        <button class="popup__button-close" type="button"></button>
+        <img class="popup__big-card-image" />
+        <h2 class="popup__big-card-text"></h2>
+      </div>
+    </div>
+    <div class="popup popup__update-avatar">
+      <div class="popup__container">
+        <button class="popup__button-close" type="button"></button>
+        <form class="popup__form" name="update-avatar">
+          <h3 class="popup__title">Обновить аватар</h3>
+          <fieldset class="popup__fieldset">
+            <input
+              id="url-input"
+              class="popup__input popup__input-name"
+              name="name"
+              type="url"
+              placeholder="Имя"
+              value="https://somewebsite.com/someimage.jpg"
+              required
+            />
+            <span class="popup__input-error url-input-error"></span>
+          </fieldset>
+          <button class="popup__button-submit" type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup__delete-card">
+      <div class="popup__container">
+        <button class="popup__button-close" type="button"></button>
+        <form class="popup__form" name="delete-card">
+          <h3 class="popup__title">Вы уверены?</h3>
+          <button class="popup__button-submit" type="submit">Да</button>
+        </form>
+      </div>
+    </div>
+    <template id="template-Element">
+      <li class="element">
+        <img class="element__image" />
+        <button class="element__button-trash" type="button"></button>
+        <div class="element__info">
+          <h2 class="element__place"></h2>
+          <div class="element__like-container">
+            <button class="element__button" type="button"></button>
+            <span class="element__like-counter">5</span>
+          </div>
+        </div>
+      </li>
+    </template>
+  </body>
+</html>
