@@ -1,12 +1,6 @@
 export { addCard, elementsList, createCard };
-import {
-  openPopup,
-  popupDeleteCard,
-  closePopup,
-  popupButtonSubmit,
-} from "./modal";
+import { openPopup, popupDeleteCard } from "./modal";
 import { deleteCard, addLike, delLike, getUser } from "./api";
-import { handleSubmitСallback } from "./utils";
 const popupBigCard = document.querySelector(".popup__big-card");
 const popupBigCardImage = popupBigCard.querySelector(".popup__big-card-image");
 const popupBigCardText = popupBigCard.querySelector(".popup__big-card-text");
@@ -31,28 +25,18 @@ const createCard = (card, userId) => {
   elementPlace.textContent = cardName;
   elementImage.alt = cardName;
 
-  //колбэк функция удаления карточки
-  function callbackDeleteCardFormSubmit() {
+  //слушатель корзины для удаления карточки
+  elementButtonTrash.addEventListener("click", (evt) => {
+    evt.preventDefault();
+    const closestElement = evt.target.closest(".element");
     return deleteCard(cardId)
       .then((res) => {
-        closePopup(popupDeleteCard);
-        popupButtonSubmit.classList.add("popup__button-submit_disabled");
-        popupButtonSubmit.disabled = true;
+        console.log(res);
+        closestElement.remove();
       })
       .catch((err) => {
         console.log(err);
       });
-  }
-  //слушатель корзины для удаления карточки
-  elementButtonTrash.addEventListener("click", (evt) => {
-    openPopup(popupDeleteCard);
-    const closestElement = evt.target.closest(".element");
-    const handleDeleteCardFormSubmit = (evt) => {
-      evt.preventDefault();
-      handleSubmitСallback(callbackDeleteCardFormSubmit, evt);
-      closestElement.remove();
-    };
-    popupDeleteCard.addEventListener("submit", handleDeleteCardFormSubmit);
   });
 
   //проверяем есть ли лайки у карточки
@@ -77,15 +61,23 @@ const createCard = (card, userId) => {
   elementButton.addEventListener("click", function (evt) {
     // если лайк активный, то при нажатии делаем запрос на удаление лайка, если все ок, то изменяется счетчик лайков и удаляется класс активности
     if (elementButton.classList.contains("element__button_active")) {
-      delLike(card._id).then((res) => {
-        elementLikeCounter.textContent = res.likes.length;
-        elementButton.classList.remove("element__button_active");
-      });
+      delLike(card._id)
+        .then((res) => {
+          elementLikeCounter.textContent = res.likes.length;
+          elementButton.classList.remove("element__button_active");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } else {
-      addLike(card._id).then((res) => {
-        elementLikeCounter.textContent = res.likes.length;
-        elementButton.classList.add("element__button_active");
-      });
+      addLike(card._id)
+        .then((res) => {
+          elementLikeCounter.textContent = res.likes.length;
+          elementButton.classList.add("element__button_active");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   });
 
@@ -101,9 +93,13 @@ const createCard = (card, userId) => {
 
 //функция добавление карточки в DOM
 const addCard = (card) => {
-  getUser().then((res) => {
-    const user = res;
-    const element = createCard(card, user._id);
-    elementsList.prepend(element);
-  });
+  getUser()
+    .then((res) => {
+      const user = res;
+      const element = createCard(card, user._id);
+      elementsList.prepend(element);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
