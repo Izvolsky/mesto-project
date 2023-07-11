@@ -20,6 +20,8 @@ import {
 import { enableValidation, setting } from "./components/validate";
 import { getUser, getCard } from "./components/api";
 import { elementsList, createCard } from "./components/card";
+export { userId };
+let userId;
 
 document
   .querySelector(".profile__button-edit")
@@ -68,12 +70,13 @@ document.querySelectorAll(".popup__input").forEach((input) => {
 enableValidation(setting); //вызов функции валидации всех форм
 
 Promise.all([getUser(), getCard()]) //вернет массив, когда выполним два запроса
-  .then((res) => {
-    const user = res[0]; //обрабатываем первый запрос
+  .then(([userData, cardsData]) => {
+    const user = userData; //обрабатываем первый запрос
     profileName.textContent = user.name;
     profileProfession.textContent = user.about;
     profileImage.src = user.avatar;
-    const cards = res[1]; //обрабатываем второй запрос
+    userId = user._id;
+    const cards = cardsData; //обрабатываем второй запрос
     cards.forEach((card) => {
       const newCard = createCard(card, user._id); //вызов функции добавления карточки
       elementsList.append(newCard);

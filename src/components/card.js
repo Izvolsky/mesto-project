@@ -1,6 +1,7 @@
 export { addCard, elementsList, createCard };
-import { openPopup, popupDeleteCard } from "./modal";
-import { deleteCard, addLike, delLike, getUser } from "./api";
+import { openPopup } from "./modal";
+import { deleteCard, addLike, delLike } from "./api";
+import { userId } from "../index.js";
 const popupBigCard = document.querySelector(".popup__big-card");
 const popupBigCardImage = popupBigCard.querySelector(".popup__big-card-image");
 const popupBigCardText = popupBigCard.querySelector(".popup__big-card-text");
@@ -93,13 +94,6 @@ const createCard = (card, userId) => {
 
 //функция добавление карточки в DOM
 const addCard = (card) => {
-  getUser()
-    .then((res) => {
-      const user = res;
-      const element = createCard(card, user._id);
-      elementsList.prepend(element);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  const element = createCard(card, userId);
+  elementsList.prepend(element);
 };

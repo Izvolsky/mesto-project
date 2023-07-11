@@ -17,7 +17,7 @@ const urlСonfiguration = {
     "Content-Type": "application/json",
   },
 };
-//работает 2. Перед стартом. Как сделать запрос к серверу
+//работает 2. Перед стартом. Как сделать запрос к серверу - проверка запроса
 function testResponse(res) {
   if (res.ok) {
     return res.json();
@@ -25,68 +25,70 @@ function testResponse(res) {
     return Promise.reject(`Ошибка: ${res.status}`);
   }
 }
+//универсальная функция запроса с проверкой ответа, чтобы не дублировать эту проверку в каждом запросе
+function request(endpoint, options) {
+  return fetch(`${urlСonfiguration.url}/${endpoint}`, options).then(
+    testResponse
+  );
+}
 
 //работает 3. Загрузка информации о пользователе с сервера
 function getUser() {
-  return fetch(`${urlСonfiguration.url}/users/me`, {
-    headers: urlСonfiguration.headers,
-  }).then(testResponse);
+  return request(`/users/me`, { headers: urlСonfiguration.headers });
 }
 
 //работает 4. Загрузка карточек с сервера
 function getCard() {
-  return fetch(`${urlСonfiguration.url}/cards`, {
-    headers: urlСonfiguration.headers,
-  }).then(testResponse);
+  return request(`/cards`, { headers: urlСonfiguration.headers });
 }
 
 //работает 5. Редактирование профиля
 function requestProfilePatch(data) {
-  return fetch(`${urlСonfiguration.url}/users/me`, {
+  return request(`/users/me`, {
     method: "PATCH",
-    headers: urlСonfiguration.headers,
     body: JSON.stringify(data),
-  }).then(testResponse);
+    headers: urlСonfiguration.headers,
+  });
 }
 
 //работает 6. Добавление новой карточки
 function addCardPost(data) {
-  return fetch(`${urlСonfiguration.url}/cards`, {
+  return request(`/cards`, {
     method: "POST",
     headers: urlСonfiguration.headers,
     body: JSON.stringify(data),
-  }).then(testResponse);
+  });
 }
 
-//!!! осталось доделать гаведение карандашика 10. Обновление аватара пользователя
+//10. Обновление аватара пользователя
 function changeAvatar(data) {
-  return fetch(`${urlСonfiguration.url}/users/me/avatar`, {
+  return request(`/users/me/avatar`, {
     method: "PATCH",
     headers: urlСonfiguration.headers,
     body: JSON.stringify(data),
-  }).then(testResponse);
+  });
 }
 
 //8. Удаление карточки
 function deleteCard(cardId) {
-  return fetch(`${urlСonfiguration.url}/cards/${cardId}`, {
+  return request(`/cards/${cardId}`, {
     method: "DELETE",
     headers: urlСonfiguration.headers,
-  }).then(testResponse);
+  });
 }
 
 //9. Постановка лайка
 function addLike(cardId) {
-  return fetch(`${urlСonfiguration.url}/cards/likes/${cardId}`, {
+  return request(`/cards/likes/${cardId}`, {
     method: "PUT",
     headers: urlСonfiguration.headers,
-  }).then(testResponse);
+  });
 }
 
 //9. Удаление лайка
 function delLike(cardId) {
-  return fetch(`${urlСonfiguration.url}/cards/likes/${cardId}`, {
+  return request(`/cards/likes/${cardId}`, {
     method: "DELETE",
     headers: urlСonfiguration.headers,
-  }).then(testResponse);
+  });
 }
